@@ -11,6 +11,7 @@ def task_lists_hook(md, tokens, state):
         if tok['type'] == 'list':
             for item in tok['children']:
                 _rewrite_list_item(item)
+                task_lists_hook(None, item['children'], None)
     return tokens
 
 
